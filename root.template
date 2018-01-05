@@ -1,0 +1,11 @@
+server {
+  server_name foo;
+
+  location / {
+    root /public/;
+  }
+
+  location /foo {
+    return 301 http://localhost/$request_uri;
+  }
+}

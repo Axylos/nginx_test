@@ -1,0 +1,12 @@
+version: '3.4'
+services: 
+  web:
+    image: nginx
+    volumes: 
+    - ./root.template:/etc/nginx/conf.d/root.template
+    - ./public:/public
+    ports:
+      - "80:80"
+    command: /bin/bash -c "envsubst < /etc/nginx/conf.d/root.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+
+
